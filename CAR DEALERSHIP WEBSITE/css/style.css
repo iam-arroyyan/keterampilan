@@ -173,11 +173,28 @@ body{
 }
 
 
-/* INVENTORY */
+/* PRODUCT */
 
-.inventory{
-   background: var(--mainGrey);
+.product{
+   background: var(--mainWhite);
 }
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .car-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .car-card:hover {
+    transform: scale(1.05);
+  }
+  
 
 .car-card{
     border-radius: 0 !important;
@@ -202,8 +219,46 @@ body{
        
 }
 
+/* Tambahkan padding atau margin pada ukuran kecil */
+@media (max-width: 768px) {
+    .car-card {
+      margin: 1rem 0;
+    }
+  
+    .car-img {
+      height: auto; /* pastikan gambar tetap proporsional */
+    }
+  
+    .car-value {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Tambahkan responsivitas untuk layar sangat kecil */
+  @media (max-width: 576px) {
+    .car-card {
+      padding: 0.5rem;
+    }
+  
+    .car-value {
+      font-size: 0.8rem;
+      clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+    }
+  
+    .car-footer p {
+      font-size: 0.75rem;
+    }
 
+    .car-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* menjaga gambar agar tidak terdistorsi */
+      }
+      
+  }
+  
 
+  
 /* QUESTION */
 
 
@@ -313,6 +368,10 @@ body{
 }
 
 /* MAPS */
+
+.location{
+    background: var(--mainGrey);
+ }
 
 .map-container {
     position: relative;

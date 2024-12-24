@@ -1,7 +1,3 @@
-
-
-
-
 window.addEventListener('load', () => document.querySelector('.preloader').classList.add('hidePreloader'));
 
 
@@ -119,10 +115,6 @@ const displaySpecialCars = ( (createCars) => {
       document.querySelector('.featured-photo').src = img;
 
     }
-    
-
-    
-  
   });
 
 
@@ -135,57 +127,51 @@ const displayCars = ((createCars) => {
   const cars = createCars.cars;
 
   //car container
-  const inventory = document.querySelector('.inventory-container');
+  const product = document.querySelector('.product-container');
  
    //CONTENT LOADED
-   document.addEventListener('DOMContentLoaded', () => {
-      inventory.innerHTML = " ";
-
-      let output = " ";
-      cars.forEach((car) => {
-        output +=
-         ` <div class="col 10 mx-auto my-3 col-md-6 col-lg-4 single-car ${car.country}">
-        <div class="card car-card">
-
-           <img src="${car.img}" class="card-img-top car-img" alt="car">
-
-           <div class="card-body">
-              <div class="car-info d-flex justify-content-between">
-
-                 <div class="car-text text-uppercase">
-                    <h6 class="font-weight-bold">${car.make}</h6>
-                    <h6>${car.model }</h6>
-                 </div>
-
-                 <h5 class="car-value align-self-center py-2 px-3">$
-                    <span class="car-price">${car.price}</span>
-                 </h5>
-
-              </div>
-
-           </div>
-
-           <div class="card-footer text-capitalize d-flex justify-content-between">
-              <p><span><i class="fas fa-car"></i></span>${car.type}</p>
-                  <p><span><i class="fas fa-cogs"></i></span>${car.trans}</p>
-              <p><span><i class="fas fa-gas-pump"></i></span>${car.gas} </p>
-           </div>
-
-        </div>
-
-     </div>`
-
-      })
-
-      inventory.innerHTML = output;
-
-   })
-
-
-
+   document.addEventListener("DOMContentLoaded", () => {
+    const productContainer = document.querySelector(".product-container");
+    console.log(productContainer); // Harus menunjukkan elemen, bukan null
+    let output = "";
   
+    cars.forEach((car) => {
+      output += `
+        <div class="col-10 mx-auto my-3 col-md-6 col-lg-4">
+          <div class="card car-card">
+            <img src="${car.img}" class="card-img-top car-img" alt="${car.make}">
+            <div class="card-body">
+              <div class="car-info d-flex justify-content-between">
+                <div class="car-text text-uppercase">
+                  <h6 class="font-weight-bold">${car.make}</h6>
+                  <h6>${car.model}</h6>
+                </div>
+                <h5 class="car-value align-self-center py-2 px-3">Rp
+                  <span class="car-price">${car.price}</span>
+                </h5>
+              </div>
+            </div>
+            <div class="card-footer text-capitalize d-flex justify-content-between">
+              <p><span><i class="fas fa-motorcycle"></i></span>${car.type}</p>
+              <p><span><i class="fas fa-history"></i></span>${car.trans}</p>
+              <p><span><i class="fas fa-calendar-alt"></i></span>${car.gas}</p>
+              <p><span><i class="fa fa-paint-brush"></i></span>${car.color}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    console.log("Script loaded!");
+    productContainer.innerHTML = output;
+  });
+      
+
 })(createCars);
 
+console.log("Rendering cards...");
+console.log(cars);
+
+ 
 
 //FILTER CARS
 
